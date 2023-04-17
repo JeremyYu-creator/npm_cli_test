@@ -10,6 +10,7 @@ const shell = require('shelljs');// shelljs 做的事就是自动化，从耗时
 const child_process = require('child_process');// child_process 创建异步进程(子进程)  exec传递的是 command 或 可执行文件
 const process = require('process')
 const fs = require('fs');
+const { version } = require('./package.json')
 /**
  * @description: program.version 调用该命令时（如 yu_npm_cli -v） 会携带出'1.0.0'
  * @description: program.command 定义初始化命令（如 yu_npm_cli init <项目名>）
@@ -17,7 +18,7 @@ const fs = require('fs');
  * @param {type} node index.js init test == yu_npm_cli init test  // 会创建一个名字为test的文件夹，里面会是github上链接的项目
  * @return: program.parse(process.argv)解析命令行中的参数，解析出name,并传入action回调。
  */
-const version = '1.0.6'
+// const version = '1.0.6'
 program.version(chalk.green(`♫ ===== Dark，yu_npm_cli ===== \n  version: ${version}`), '-v, --version').
   command('init <name>').
   action(name => {
